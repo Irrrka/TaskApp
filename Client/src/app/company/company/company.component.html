@@ -1,0 +1,28 @@
+<div class=" w-100">
+        <div class="row">
+            <div class="col-md-12">
+    
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h1 class="text-center">{{selectedCompany.name}}</h1>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p class="text-bold amount">
+                            <span>{{selectedCompany.creationDate}}</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                        <div class="col-xs-12">
+                        <a  [routerLink]="['/companies/edit/', selectedCompany.id]" class="btn btn-info">Edit</a>
+                            </div>
+                    <div class="col-xs-12">
+                        <a  (click)="deleteCompany(selectedCompany.id)" class="btn btn-danger">Delete</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

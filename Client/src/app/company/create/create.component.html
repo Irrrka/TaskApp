@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-2">
+        <h2>Create new Company</h2>
+        <form [formGroup]="myform" (submit)="createCompany()">
+
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input class="form-control" id="new-make" formControlName="name" type="text"/>
+          </div>
+            <div class="alert alert-danger" *ngIf="f.name.touched && f.name.errors?.required">
+                This field is required.
+            </div>
+            <div class="alert alert-danger" *ngIf="f.name.touched && f.name.errors?.minlenght">
+                Lenght must be at least {{f.name.errors.minlenght.requiredLenght}} symbols.
+            </div>
+          <div class="form-group">
+            <label for="creationDate">Creation Date</label>
+            <input class="form-control" id="new-date" formControlName="creationDate" type="datetime"/>
+          </div>
+          <div class="alert alert-danger" *ngIf="f.creationDate.touched && f.creationDate.errors?.required">
+              This field is required.
+            </div>
+          <button class="btn btn-sm btn-success" type="submit">Create</button>
+        </form>
+      </div>
+    </div>
+  </div>

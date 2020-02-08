@@ -1,0 +1,63 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-2">
+        <h2>Create new Company</h2>
+        <form [formGroup]="myform" (submit)="createEmployee()">
+
+          <div class="form-group">
+            <label for="name">First Name</label>
+            <input class="form-control" formControlName="firstName" type="text"/>
+          </div>
+            <div class="alert alert-danger" *ngIf="f.firstName.touched && f.firstName.errors?.required">
+                This field is required.
+            </div>
+            <div class="alert alert-danger" *ngIf="f.firstName.touched && f.firstName.errors?.minlenght">
+                Lenght must be at least {{f.firstName.errors.minlenght.requiredLenght}} symbols.
+            </div>
+
+            <div class="form-group">
+                <label for="name">Last Name</label>
+                <input class="form-control" formControlName="lastName" type="text"/>
+              </div>
+                <div class="alert alert-danger" *ngIf="f.lastName.touched && f.lastName.errors?.required">
+                    This field is required.
+                </div>
+                <div class="alert alert-danger" *ngIf="f.lastName.touched && f.lastName.errors?.minlenght">
+                    Lenght must be at least {{f.lastName.errors.minlenght.requiredLenght}} symbols.
+                </div>
+
+          <div class="form-group">
+            <label for="creationDate">Starting Date</label>
+            <input class="form-control" formControlName="startingDate" type="datetime"/>
+          </div>
+          <div class="alert alert-danger" *ngIf="f.startingDate.touched && f.startingDate.errors?.required">
+              This field is required.
+            </div>
+
+            <div class="form-group">
+                <label for="creationDate">Salary</label>
+                <input class="form-control" formControlName="salary" type="number"/>
+            </div>
+            <div class="alert alert-danger" *ngIf="f.salary.touched && f.salary.errors?.required">
+                This field is required.
+            </div>
+            <div class="alert alert-danger" *ngIf="f.salary.touched && f.salary.errors?.min">
+                Salary must be at least {{f.salary.errors.min}} euros.
+            </div>
+
+            <div class="form-group">
+                <label for="creationDate">Vacations day</label>
+                <input class="form-control" formControlName="vacationsDay" type="number"/>
+            </div>
+            <div class="alert alert-danger" *ngIf="f.vacationsDay.touched && f.vacationsDay.errors?.required">
+                This field is required.
+            </div>
+            <div class="alert alert-danger" *ngIf="f.vacationsDay.touched && (f.vacationsDay.errors?.min || f.vacationsDay.errors?.max)">
+                Vacation must be between {{f.salary.errors.min.min}} and  {{f.salary.errors.max.max} days.
+            </div>
+
+          <button class="btn btn-sm btn-success" type="submit" [disabled]="invalid">Create</button>
+        </form>
+      </div>
+    </div>
+  </div>

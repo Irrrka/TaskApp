@@ -1,0 +1,23 @@
+<div class="col-md-4">
+    <h1>Companies</h1>
+    <div class="row">
+        <div class="col-xs-12" *ngIf="companies">
+            <a *ngFor="let c of companies" [routerLink]="['/companies/details/', c.id]" class="list-group-item clearfix">
+                <div class="pull-left">
+                    <h4 class="list-group-item-heading">{{c.name}}</h4>
+                </div>
+                <div class="pull-left">
+                    <h5 class="list-group-item-heading">{{c.creationDate}}</h5>
+                </div>
+                <div class="pull-left">
+                        <h5>Offices:</h5>
+                <p *ngFor="let o of c.offices">{{o.country}} - {{o.city}}</p>
+                </div>
+                <div class="pull-left">
+                    <h5>Employees:</h5>
+                <p *ngFor="let e of c.employees">{{e.firstName}} {{e.lastName}} - {{exp[e.experienceLevel]}}</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
